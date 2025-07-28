@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/*Roboto Regular*/
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/Fonts/Roboto-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+/*Roboto Bold*/
+@font-face {
+  font-family: "RobotoBold";
+  src: url("./assets/Fonts/Roboto-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+
+/*Roboto Extra Bold*/
+@font-face {
+  font-family: "RobotoExtraBold";
+  src: url("./assets/Fonts/Roboto-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+
+/*Roboto Thin*/
+@font-face {
+  font-family: "RobotoThin";
+  src: url("./assets/Fonts/Roboto-Thin.ttf") format("truetype");
+  font-display: swap;
+}
+
+@theme {
+  /*Fonts*/
+  --font-roboto: "Roboto";
+  --font-roboto-bold: "RobotoBold";
+  --font-roboto-extrabold: "RobotoExtraBold";
+  --font-roboto-thin: "RobotoThin";
+  /*Colors*/
+  --color-brown: #5d4037;
+  --color-light-brown: #d7ccc8;
+}
