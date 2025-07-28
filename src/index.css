@@ -38,3 +38,7 @@
   --color-brown: #5d4037;
   --color-light-brown: #d7ccc8;
 }
+
+body {
+  background: #f8caa0;
+}
