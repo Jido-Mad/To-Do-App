@@ -4,9 +4,9 @@ import Header from "./Header";
 
 function Container() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <Header />
-      <section className="flex">
+      <section className="flex flex-col">
         <AddSection />
         <List />
       </section>

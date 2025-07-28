@@ -14,13 +14,6 @@
   font-display: swap;
 }
 
-/*Roboto Extra Bold*/
-@font-face {
-  font-family: "RobotoExtraBold";
-  src: url("./assets/Fonts/Roboto-ExtraBold.ttf") format("truetype");
-  font-display: swap;
-}
-
 /*Roboto Thin*/
 @font-face {
   font-family: "RobotoThin";
@@ -32,6 +25,5 @@
   /*Fonts*/
   --font-roboto: "Roboto";
   --font-roboto-bold: "RobotoBold";
-  --font-roboto-extrabold: "RobotoExtraBold";
   --font-roboto-thin: "RobotoThin";
 }
