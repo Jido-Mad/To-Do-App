@@ -34,11 +34,4 @@
   --font-roboto-bold: "RobotoBold";
   --font-roboto-extrabold: "RobotoExtraBold";
   --font-roboto-thin: "RobotoThin";
-  /*Colors*/
-  --color-brown: #5d4037;
-  --color-light-brown: #d7ccc8;
-}
-
-body {
-  background: #f8caa0;
 }

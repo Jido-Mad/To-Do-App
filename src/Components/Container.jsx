@@ -1,5 +1,17 @@
+import AddSection from "./sections/AddSection";
+import List from "./sections/List";
+import Header from "./Header";
+
 function Container() {
-  return <div>container</div>;
+  return (
+    <div className="flex flex-col">
+      <Header />
+      <section className="flex">
+        <AddSection />
+        <List />
+      </section>
+    </div>
+  );
 }
 
 export default Container;
