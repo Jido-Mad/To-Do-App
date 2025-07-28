@@ -11,7 +11,7 @@ function AddSection() {
         id="todo-input"
         type="text"
         placeholder="Type Here..."
-        className="w-70 h-10 p-2 border border-[#ECD8B1] rounded-md outline-none "
+        className="w-70 h-10 p-2 border border-[#ECD8B1] rounded-md outline-none focus-within:shadow-md"
       />
       <button className="text-white font-roboto-bold bg-[#693F26] w-70 h-10 rounded-md shadow-md ">
         Add to list
