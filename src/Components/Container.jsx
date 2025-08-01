@@ -6,7 +6,7 @@ function Container() {
   return (
     <div className="flex flex-col w-full">
       <Header />
-      <section className="flex flex-col">
+      <section className="flex flex-col gap-10">
         <AddSection />
         <List />
       </section>
