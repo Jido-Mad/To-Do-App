@@ -3,7 +3,7 @@ import { CiEdit } from "react-icons/ci";
 
 function List() {
   return (
-    <div className="shadow-lg h-90 w-[90%] p-4 bg-[#FAF6EF] rounded-2xl flex flex-col items-center gap-5 self-center">
+    <div className="shadow-lg h-90 w-[90%] p-4 bg-[#ECD8B1] rounded-2xl flex flex-col items-center gap-5 self-center">
       <h2 className="font-roboto-bold text-2xl text-shadow-sm">Todos</h2>
       <ul className="w-full flex flex-col items-center gap-5 h-full  overflow-auto">
         {/*Styling for the Tasks*/}
