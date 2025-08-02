@@ -2,7 +2,7 @@ import { IoIosAdd } from "react-icons/io";
 
 function AddSection() {
   return (
-    <div className="flex flex-col items-center p-4 gap-6">
+    <div className="flex flex-col items-center p-4 gap-4">
       <h2 className="font-roboto-bold text-xl">Add a Todo:</h2>
       <label htmlFor="todo-input" className="sr-only">
         Enter a new task

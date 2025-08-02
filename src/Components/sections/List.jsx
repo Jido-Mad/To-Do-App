@@ -1,19 +1,14 @@
-import { IoMdRemoveCircleOutline } from "react-icons/io";
-import { CiEdit } from "react-icons/ci";
+import Task from "../Task";
 
 function List() {
   return (
-    <div className="shadow-lg h-90 w-[90%] p-4 bg-[#ECD8B1] rounded-2xl flex flex-col items-center gap-5 self-center">
+    <div className="shadow-lg h-95 w-[90%] p-4 bg-[#ECD8B1] text-[#3B2415] rounded-2xl flex flex-col items-center gap-5 self-center">
       <h2 className="font-roboto-bold text-2xl text-shadow-sm">Todos</h2>
+      <hr className="h-[1px] w-[90%] bg-[#3B2415] opacity-[30%] border-none" />
       <ul className="w-full flex flex-col items-center gap-5 h-full  overflow-auto">
-        {/*Styling for the Tasks*/}
-        <li className="flex items-center justify-between p-3 border-l-8 border-[#D5C2A5] shadow-md rounded-sm w-full h-15">
-          <p className="font-roboto-bold">Play League of Legends</p>
-          <div className="flex gap-x-4">
-            <CiEdit className="text-2xl text-[#A26F25]" />
-            <IoMdRemoveCircleOutline className="text-2xl text-red-700" />
-          </div>
-        </li>
+        <p className="m-auto opacity-[30%] text-xl">
+          Your Tasks Will Appear Here
+        </p>
       </ul>
     </div>
   );
