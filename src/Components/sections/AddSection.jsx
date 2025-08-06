@@ -1,4 +1,4 @@
-import { IoIosAdd } from "react-icons/io";
+import Task from "../Task.jsx";
 
 function AddSection() {
   return (
