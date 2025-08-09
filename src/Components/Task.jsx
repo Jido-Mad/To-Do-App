@@ -12,5 +12,4 @@ function Task({ name }) {
     </li>
   );
 }
-
 export default Task;
