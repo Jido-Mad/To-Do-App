@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AddSection({ adding }) {
+function AddSection({ displayTask }) {
   const [inputValue, setInputValue] = useState("");
 
   /* Stores the InputValue */
@@ -9,11 +9,11 @@ function AddSection({ adding }) {
   }
 
   /* Handles the Add Button */
-  function handleClick() {
+  function handleAddBtn() {
     if (!inputValue) {
       alert("Your Task can't be Empty");
     } else {
-      adding(inputValue);
+      displayTask(inputValue);
       setInputValue("");
     }
   }
@@ -37,7 +37,7 @@ function AddSection({ adding }) {
         />
       </div>
       <button
-        onClick={handleClick}
+        onClick={handleAddBtn}
         className="text-white font-roboto-bold bg-[#693F26] w-70 h-10 rounded-md shadow-md "
       >
         Add to list

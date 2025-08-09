@@ -8,7 +8,7 @@ function Container() {
   const [addTask, setAddTask] = useState([]);
 
   /* function to store and display the tasks */
-  function showTasks(newTask) {
+  function handleTasks(newTask) {
     setAddTask((prevTask) => [...prevTask, newTask]);
   }
 
@@ -16,7 +16,7 @@ function Container() {
     <div className="flex flex-col w-full">
       <Header />
       <section className="flex flex-col gap-10">
-        <AddSection adding={showTasks} />
+        <AddSection displayTask={handleTasks} />
         <List task={addTask} />
       </section>
     </div>
