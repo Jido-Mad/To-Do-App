@@ -1,5 +1,5 @@
-import { IoMdRemoveCircleOutline } from "react-icons/io";
 import { CiEdit } from "react-icons/ci";
+import DeleteBtn from "./Buttons/DeleteBtn.jsx";
 
 function Task({ name }) {
   return (
@@ -7,7 +7,7 @@ function Task({ name }) {
       <p className="font-roboto-bold">{name}</p>
       <div className="flex gap-x-4">
         <CiEdit className="text-2xl text-[#A26F25]" />
-        <IoMdRemoveCircleOutline className="text-2xl text-red-700" />
+        <DeleteBtn />
       </div>
     </li>
   );
