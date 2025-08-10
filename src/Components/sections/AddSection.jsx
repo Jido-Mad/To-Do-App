@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AddSection({ displayTask }) {
+function AddSection({ displayTasks }) {
   const [inputValue, setInputValue] = useState("");
 
   /* Stores the InputValue */
@@ -9,12 +9,14 @@ function AddSection({ displayTask }) {
   }
 
   /* Handles the Add Button */
-  function handleAddBtn() {
-    if (!inputValue) {
-      alert("Your Task can't be Empty");
-    } else {
-      displayTask(inputValue);
-      setInputValue("");
+  function handleAddBtn(e) {
+    if (e.key === "Enter") {
+      if (!inputValue) {
+        alert("Your Task can't be Empty");
+      } else {
+        displayTasks(inputValue);
+        setInputValue("");
+      }
     }
   }
 
@@ -28,6 +30,7 @@ function AddSection({ displayTask }) {
           Enter a new task
         </label>
         <input
+          onKeyDown={handleAddBtn}
           value={inputValue}
           onChange={handleChange}
           id="todo-input"

@@ -1,13 +1,16 @@
 import { CiEdit } from "react-icons/ci";
-import DeleteBtn from "./Buttons/DeleteBtn.jsx";
+import { IoMdRemoveCircleOutline } from "react-icons/io";
 
-function Task({ name }) {
+function Task({ name, taskDel }) {
   return (
     <li className="flex items-center justify-between p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15">
-      <p className="font-roboto-bold">{name}</p>
+      <p className="font-roboto-bold overflow-auto max-w-50">{name}</p>
       <div className="flex gap-x-4">
         <CiEdit className="text-2xl text-[#A26F25]" />
-        <DeleteBtn />
+        <IoMdRemoveCircleOutline
+          className="text-2xl text-red-700"
+          onClick={taskDel}
+        />
       </div>
     </li>
   );
