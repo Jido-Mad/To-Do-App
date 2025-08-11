@@ -10,13 +10,12 @@ function AddSection({ displayTasks }) {
 
   /* Handles the Add Button */
   function handleAddBtn(e) {
-    if (e.key === "Enter") {
-      if (!inputValue) {
-        alert("Your Task can't be Empty");
-      } else {
-        displayTasks(inputValue);
-        setInputValue("");
-      }
+    if (e.type === "keydown" && e.key !== "Enter") return;
+    if (!inputValue) {
+      alert("Your Task can't be Empty");
+    } else {
+      displayTasks(inputValue);
+      setInputValue("");
     }
   }
 
