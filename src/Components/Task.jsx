@@ -10,8 +10,7 @@ function Task({ name, taskDel }) {
   function handleEditor() {
     setEditor((prev) => !prev);
   }
-
-  useEffect(() => {
+  +useEffect(() => {
     if (editor && inputRef.current) {
       inputRef.current.focus();
       inputRef.current.select();
@@ -26,9 +25,8 @@ function Task({ name, taskDel }) {
             ref={inputRef}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="font-roboto-bold overflow-auto max-w-40 border border-zinc-300 rounded-md w-45 h-8 p-2"
+            className="font-roboto-bold overflow-auto max-w-40 outline-none border border-zinc-300 rounded-md w-45 h-8 p-2"
             type="text"
-            placeholder="Type Something.."
           />
           <div className="flex gap-x-4 ">
             {/* Edit Button */}
