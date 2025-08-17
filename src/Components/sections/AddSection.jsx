@@ -20,7 +20,7 @@ function AddSection({ displayTasks }) {
   }
 
   return (
-    <div className="flex flex-col items-center p-4 gap-8">
+    <div className="flex flex-col items-center p-4 gap-8 md:w-full">
       <div>
         <h2 className="font-roboto-bold text-lg text-[#3B2415] opacity-50">
           Add a Todo:
