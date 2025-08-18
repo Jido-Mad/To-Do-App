@@ -8,7 +8,7 @@ function Task({ name, taskDel }) {
   const [editor, setEditor] = useState(false);
   const inputRef = useRef(null);
   const liClasses =
-    "flex items-center justify-between p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white";
+    "flex items-center  justify-between p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white";
 
   function editTask() {
     setEditor(true);

@@ -19,7 +19,7 @@ function Container() {
 
   return (
     <div className="flex flex-col w-full md:w-[800px] md:shadow-xl md:rounded-md overflow-hidden">
-      <Header />
+      <Header todosCount={tasks.length} />
       <section className="flex flex-col md:flex-row md:items-start gap-10 md:gap-0 md:min-h-120">
         <AddSection displayTasks={addTask} />
         <List task={tasks} handleRemove={removeTask} />

@@ -1,10 +1,10 @@
 import { MdListAlt } from "react-icons/md";
 
-function Header() {
+function Header({ todosCount }) {
   return (
     <div className="flex items-center justify-between p-2 font-roboto-bold bg-[#693F26] text-white">
       <MdListAlt className=" text-2xl" />
-      <span>0/0 To Dos Completed</span>
+      <span>0/{todosCount} To Dos Completed</span>
     </div>
   );
 }

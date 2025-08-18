@@ -20,7 +20,7 @@ function AddSection({ displayTasks }) {
   }
 
   return (
-    <div className="flex flex-col items-center p-4 gap-8 md:w-full">
+    <div className="flex flex-col items-center bg-[#ECD8B1] p-4 gap-8 md:w-full md:h-120">
       <div>
         <h2 className="font-roboto-bold text-lg text-[#3B2415] opacity-50">
           Add a Todo:
@@ -34,8 +34,7 @@ function AddSection({ displayTasks }) {
           onChange={handleChange}
           id="todo-input"
           type="text"
-          placeholder="Type Here..."
-          className="w-70 h-10 p-2  rounded-md outline-none focus-within:shadow-md bg-white"
+          className="w-70 h-10 p-2 font-roboto text-md  rounded-md outline-none focus-within:shadow-md bg-white"
         />
       </div>
       <button
