@@ -3,24 +3,28 @@ import { BsTrashFill } from "react-icons/bs";
 import { useState, useEffect, useRef } from "react";
 
 function Task({ name, taskDel }) {
+  // State & refs
   const [taskName, setTaskName] = useState(name);
   const [inputValue, setInputValue] = useState(name);
   const [editor, setEditor] = useState(false);
   const inputRef = useRef(null);
+
+  // Classes
   const liClasses =
-    "flex items-center  justify-between p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white";
+    "flex items-center  justify-between p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer";
 
-  function editTask() {
-    setEditor(true);
-  }
-
-  /* Logic to select and focus the text when pressing the edit button */
+  // Effects
   useEffect(() => {
     if (editor && inputRef.current) {
       inputRef.current.focus();
       inputRef.current.select();
     }
   }, [editor]);
+
+  //Handlers
+  function editTask() {
+    setEditor(true);
+  }
 
   /* Confirm Changes Function */
   function confirmChanges() {
@@ -46,7 +50,7 @@ function Task({ name, taskDel }) {
             ref={inputRef}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            className="font-roboto-bold overflow-auto max-w-40 outline-none border border-zinc-300 rounded-md w-45 h-8 p-2"
+            className="font-roboto-bold overflow-auto outline-none border border-zinc-300 rounded-md w-40 md:w-50 h-8 p-2"
             type="text"
           />
           <div className="flex gap-x-4 ">
@@ -71,9 +75,9 @@ function Task({ name, taskDel }) {
           </div>
         </li>
       ) : (
-        <li className={liClasses}>
-          <p className="font-roboto-bold overflow-auto max-w-45 p-2">
-            {taskName}
+        <li className={liClasses} title="Mark as completed">
+          <p className="font-roboto-bold overflow-auto w-45 md:w-50 p-2">
+            {taskName}z
           </p>
           <div className="flex gap-x-4 ">
             {/* Edit Button */}
