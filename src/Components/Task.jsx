@@ -4,16 +4,22 @@ import { useState, useEffect, useRef } from "react";
 
 function Task({ name, taskDel }) {
   // State & refs
+
   const [taskName, setTaskName] = useState(name);
   const [inputValue, setInputValue] = useState(name);
+  const [completed, setCompleted] = useState(false);
   const [editor, setEditor] = useState(false);
   const inputRef = useRef(null);
 
   // Classes
+
   const liClasses =
     "flex items-center  justify-between p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer";
+  const CompletedTaskClasses =
+    "flex items-center  justify-between text-gray-500 line-through p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white";
 
   // Effects
+
   useEffect(() => {
     if (editor && inputRef.current) {
       inputRef.current.focus();
@@ -22,20 +28,23 @@ function Task({ name, taskDel }) {
   }, [editor]);
 
   //Handlers
+
   function editTask() {
     setEditor(true);
   }
 
-  /* Confirm Changes Function */
   function confirmChanges() {
     setEditor(false);
     setTaskName(inputValue);
   }
 
-  /* Undo Changes Function */
   function undoChanges() {
     setInputValue(taskName);
     setEditor(false);
+  }
+
+  function markAsCompleted() {
+    setCompleted(true);
   }
 
   return (
@@ -75,12 +84,17 @@ function Task({ name, taskDel }) {
           </div>
         </li>
       ) : (
-        <li className={liClasses} title="Mark as completed">
-          <p className="font-roboto-bold overflow-auto w-45 md:w-50 p-2">
+        <li className={completed ? CompletedTaskClasses : liClasses}>
+          <p
+            onClick={markAsCompleted}
+            title={completed ? "" : "Mark as completed"}
+            className="font-roboto-bold overflow-auto w-45 md:w-50 p-2"
+          >
             {taskName}
           </p>
           <div className="flex gap-x-4 ">
             {/* Edit Button */}
+
             <button
               onClick={editTask}
               title="Edit Task"
@@ -89,6 +103,7 @@ function Task({ name, taskDel }) {
             >
               <AiFillEdit />
             </button>
+
             {/* Remove Button */}
             <button
               onClick={taskDel}
