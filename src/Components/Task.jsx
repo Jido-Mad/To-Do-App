@@ -77,7 +77,7 @@ function Task({ name, taskDel }) {
       ) : (
         <li className={liClasses} title="Mark as completed">
           <p className="font-roboto-bold overflow-auto w-45 md:w-50 p-2">
-            {taskName}z
+            {taskName}
           </p>
           <div className="flex gap-x-4 ">
             {/* Edit Button */}
