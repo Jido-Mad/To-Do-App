@@ -16,7 +16,7 @@ function Task({ name, taskDel }) {
   const liClasses =
     "flex items-center  justify-between p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer";
   const CompletedTaskClasses =
-    "flex items-center  justify-between text-gray-500 line-through p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white";
+    "flex items-center  justify-between text-white line-through p-3 shadow-md rounded-sm w-full h-15 bg-[#976f47]";
 
   // Effects
 
@@ -94,22 +94,26 @@ function Task({ name, taskDel }) {
           </p>
           <div className="flex gap-x-4 ">
             {/* Edit Button */}
-
-            <button
-              onClick={editTask}
-              title="Edit Task"
-              aria-label="Edit Task"
-              className="text-[#976f47] text-2xl hover:text-[#693F26] cursor-pointer transition-colors ease-in-out"
-            >
-              <AiFillEdit />
-            </button>
+            {!completed && (
+              <button
+                onClick={editTask}
+                title="Edit Task"
+                aria-label="Edit Task"
+                className="text-[#976f47] text-2xl hover:text-[#693F26] cursor-pointer transition-colors ease-in-out"
+              >
+                <AiFillEdit />
+              </button>
+            )}
 
             {/* Remove Button */}
             <button
               onClick={taskDel}
               title="Delete Task"
               aria-label="Delete Task"
-              className="flex items-center justify-center text-white bg-[#976f47] w-12 h-8 rounded-md cursor-pointer hover:bg-[#693F26] transition-colors ease-in-out"
+              className={` ${completed ? "text-[#976f47]" : "text-white"} ${
+                completed ? "bg-white" : "bg-[#976f47]"
+              } ${completed ? "hover:shadow-md" : "hover:bg-[#693F26]"}
+                flex items-center justify-center w-12 h-8 rounded-md cursor-pointer  transition-colors ease-in-out`}
             >
               <BsTrashFill />
             </button>
