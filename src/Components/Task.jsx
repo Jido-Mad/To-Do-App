@@ -1,24 +1,20 @@
+// Task.js
 import { AiFillEdit } from "react-icons/ai";
 import { BsTrashFill } from "react-icons/bs";
 import { useState, useEffect, useRef } from "react";
 
-function Task({ name, taskDel }) {
-  // State & refs
+function Task({ task, taskDel, toggleComplete }) {
+  const { id, name, completed } = task;
 
   const [taskName, setTaskName] = useState(name);
   const [inputValue, setInputValue] = useState(name);
-  const [completed, setCompleted] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const inputRef = useRef(null);
 
-  // Classes
-
   const liClasses =
-    "flex items-center  justify-between p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer";
+    "flex items-center justify-between p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer";
   const completedTaskClasses =
-    "flex items-center  justify-between text-white line-through p-3 shadow-md rounded-sm w-full h-15 bg-[#976f47]";
-
-  // Effects
+    "flex items-center justify-between text-white line-through p-3 shadow-md rounded-sm w-full h-15 bg-[#976f47]";
 
   useEffect(() => {
     if (editMode && inputRef.current) {
@@ -26,8 +22,6 @@ function Task({ name, taskDel }) {
       inputRef.current.select();
     }
   }, [editMode]);
-
-  //Handlers
 
   function editTask() {
     setEditMode(true);
@@ -43,27 +37,22 @@ function Task({ name, taskDel }) {
     setEditMode(false);
   }
 
-  function markAsCompleted() {
-    setCompleted(true);
-  }
-
   return (
     <>
       {editMode ? (
         <li className={liClasses}>
           <input
-            onKeyDown={(e) => {
-              if (e.key === "Enter") return confirmChanges();
-              if (e.key === "Escape") return undoChanges();
-            }}
             ref={inputRef}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") confirmChanges();
+              if (e.key === "Escape") undoChanges();
+            }}
             className="font-roboto-bold overflow-auto outline-none border border-zinc-300 rounded-md w-40 md:w-50 h-8 p-2"
             type="text"
           />
-          <div className="flex gap-x-4 ">
-            {/* Confirm Changes Button */}
+          <div className="flex gap-x-4">
             <button
               onClick={confirmChanges}
               title="Confirm Changes"
@@ -72,7 +61,6 @@ function Task({ name, taskDel }) {
             >
               Confirm
             </button>
-            {/* Undo Changes Button */}
             <button
               onClick={undoChanges}
               title="Undo Changes"
@@ -84,19 +72,24 @@ function Task({ name, taskDel }) {
           </div>
         </li>
       ) : (
-        <li className={completed ? completedTaskClasses : liClasses}>
+        <li
+          className={completed ? completedTaskClasses : liClasses}
+          onClick={() => toggleComplete(id)}
+        >
           <p
-            onClick={markAsCompleted}
             title={completed ? "" : "Mark as completed"}
             className="font-roboto-bold overflow-auto w-45 md:w-50 p-2"
           >
             {taskName}
           </p>
-          <div className="flex gap-x-4 ">
+          <div className="flex gap-x-4">
             {/* Edit Button */}
             {!completed && (
               <button
-                onClick={editTask}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  editTask();
+                }}
                 title="Edit Task"
                 aria-label="Edit Task"
                 className="text-[#976f47] text-2xl hover:text-[#693F26] cursor-pointer transition-colors ease-in-out"
@@ -107,13 +100,17 @@ function Task({ name, taskDel }) {
 
             {/* Remove Button */}
             <button
-              onClick={taskDel}
+              onClick={(e) => {
+                e.stopPropagation();
+                taskDel(id);
+              }}
               title="Delete Task"
               aria-label="Delete Task"
-              className={` ${completed ? "text-[#976f47]" : "text-white"} ${
+              className={`${completed ? "text-[#976f47]" : "text-white"} ${
                 completed ? "bg-white" : "bg-[#976f47]"
-              } ${completed ? "hover:shadow-md" : "hover:bg-[#693F26]"}
-                flex items-center justify-center w-12 h-8 rounded-md cursor-pointer  transition-colors ease-in-out`}
+              } ${
+                completed ? "hover:shadow-md" : "hover:bg-[#693F26]"
+              } flex items-center justify-center w-12 h-8 rounded-md cursor-pointer transition-colors ease-in-out`}
             >
               <BsTrashFill />
             </button>
@@ -123,4 +120,5 @@ function Task({ name, taskDel }) {
     </>
   );
 }
+
 export default Task;
