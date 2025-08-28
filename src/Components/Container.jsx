@@ -3,6 +3,7 @@ import AddSection from "./sections/AddSection";
 import List from "./sections/List";
 import Header from "./Header";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function Container() {
   const [tasks, setTasks] = useState([]);
@@ -10,7 +11,7 @@ function Container() {
   /* Function to store and add Task */
   function addTask(newTask) {
     const newTaskObj = {
-      id: Date.now(),
+      id: uuidv4(),
       name: newTask,
       completed: false,
     };
