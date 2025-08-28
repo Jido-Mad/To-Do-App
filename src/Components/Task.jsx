@@ -8,39 +8,39 @@ function Task({ name, taskDel }) {
   const [taskName, setTaskName] = useState(name);
   const [inputValue, setInputValue] = useState(name);
   const [completed, setCompleted] = useState(false);
-  const [editor, setEditor] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   const inputRef = useRef(null);
 
   // Classes
 
   const liClasses =
     "flex items-center  justify-between p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer";
-  const CompletedTaskClasses =
+  const completedTaskClasses =
     "flex items-center  justify-between text-white line-through p-3 shadow-md rounded-sm w-full h-15 bg-[#976f47]";
 
   // Effects
 
   useEffect(() => {
-    if (editor && inputRef.current) {
+    if (editMode && inputRef.current) {
       inputRef.current.focus();
       inputRef.current.select();
     }
-  }, [editor]);
+  }, [editMode]);
 
   //Handlers
 
   function editTask() {
-    setEditor(true);
+    setEditMode(true);
   }
 
   function confirmChanges() {
-    setEditor(false);
+    setEditMode(false);
     setTaskName(inputValue);
   }
 
   function undoChanges() {
     setInputValue(taskName);
-    setEditor(false);
+    setEditMode(false);
   }
 
   function markAsCompleted() {
@@ -49,7 +49,7 @@ function Task({ name, taskDel }) {
 
   return (
     <>
-      {editor ? (
+      {editMode ? (
         <li className={liClasses}>
           <input
             onKeyDown={(e) => {
@@ -84,7 +84,7 @@ function Task({ name, taskDel }) {
           </div>
         </li>
       ) : (
-        <li className={completed ? CompletedTaskClasses : liClasses}>
+        <li className={completed ? completedTaskClasses : liClasses}>
           <p
             onClick={markAsCompleted}
             title={completed ? "" : "Mark as completed"}
