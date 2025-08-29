@@ -12,9 +12,9 @@ function Task({ task, taskDel, toggleComplete }) {
   const inputRef = useRef(null);
 
   const liClasses =
-    "flex items-center justify-between p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-15 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer";
+    "flex items-center justify-between text-sm md:text-md p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full min-h-15 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer";
   const completedTaskClasses =
-    "flex items-center justify-between text-white line-through p-3 shadow-md rounded-sm w-full h-15 bg-[#976f47]";
+    "flex items-center justify-between text-sm md:text-md  text-white line-through p-3 shadow-md rounded-sm w-full h-15 bg-[#976f47]";
 
   useEffect(() => {
     if (editMode && inputRef.current) {
@@ -49,7 +49,7 @@ function Task({ task, taskDel, toggleComplete }) {
               if (e.key === "Enter") confirmChanges();
               if (e.key === "Escape") undoChanges();
             }}
-            className="font-roboto-bold overflow-auto outline-none border border-zinc-300 rounded-md w-40 md:w-50 h-8 p-2"
+            className="font-roboto-bold  outline-none border border-zinc-300 rounded-md w-40 md:w-50 h-8 p-2"
             type="text"
           />
           <div className="flex gap-x-4">
@@ -78,7 +78,7 @@ function Task({ task, taskDel, toggleComplete }) {
         >
           <p
             title={completed ? "" : "Mark as completed"}
-            className="font-roboto-bold overflow-auto w-45 md:w-50 p-2"
+            className="font-roboto-bold overflow-auto w-45 md:w-50"
           >
             {taskName}
           </p>
