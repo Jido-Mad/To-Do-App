@@ -15,9 +15,9 @@ function Task({ task, taskDel, toggleComplete }) {
   const inputRef = useRef(null);
 
   const liClasses =
-    "flex items-center justify-between text-sm md:text-md p-3 border-l-8 border-[#976f47] shadow-md rounded-sm w-full min-h-15 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer overflow-y-auto";
+    "flex items-center justify-between text-sm md:text-lg p-2 border-l-8 border-[#976f47] shadow-md rounded-sm w-full min-h-15 max-h-20 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer ";
   const completedTaskClasses =
-    "flex items-center justify-between text-sm md:text-md  text-white line-through p-3 shadow-md rounded-sm w-full h-15 bg-[#976f47]";
+    "flex items-center justify-between text-sm md:text-lg  text-white line-through p-2 shadow-md rounded-sm w-full min-h-15 max-h-20 bg-[#976f47]";
 
   useEffect(() => {
     if (editMode && inputRef.current) {
@@ -52,15 +52,15 @@ function Task({ task, taskDel, toggleComplete }) {
               if (e.key === "Enter") confirmChanges();
               if (e.key === "Escape") undoChanges();
             }}
-            className="font-roboto-bold  outline-none border border-zinc-300 rounded-md w-45  md:w-50 min-h-8 px-2"
+            className="font-roboto-bold  outline-none border border-zinc-300 rounded-md w-[90%] min-h-8 px-2"
             type="text"
           />
-          <div className="flex sm:gap-x-4">
+          <div className="flex gap-2 sm:gap-x-4">
             <div
               onClick={confirmChanges}
               title="Confirm Changes"
               aria-label="Confirm Changes"
-              className=" text-[#976f47] w-12 h-8 rounded-lg text-2xl flex items-center justify-center m-auto  hover:text-[#693F26]
+              className=" bg-[#976f47] text-white w-12 h-8 rounded-lg text-md flex items-center justify-center m-auto  hover:text-[#693F26]
             cursor-pointer transition-colors ease-in-out"
             >
               <TiTick />
@@ -83,7 +83,7 @@ function Task({ task, taskDel, toggleComplete }) {
         >
           <p
             title={completed ? "" : "Mark as completed"}
-            className="font-roboto-bold overflow-y-auto text-wrap py-1 w-45 md:w-50"
+            className="font-roboto-bold overflow-x-scroll text-nowrap py-4 w-[75%]"
           >
             {taskName}
           </p>
