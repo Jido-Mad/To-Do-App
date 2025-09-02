@@ -15,9 +15,9 @@ function Task({ task, taskDel, toggleComplete }) {
   const inputRef = useRef(null);
 
   const liClasses =
-    "flex items-center justify-between text-sm md:text-lg p-2 border-l-8 border-[#976f47] shadow-md rounded-sm w-full min-h-15 max-h-20 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer ";
+    "flex items-center justify-between text-sm md:text-lg p-2 border-l-8 border-[#976f47] shadow-md rounded-sm w-full h-18 bg-white hover:brightness-98 transition ease-in-out duration-100 cursor-pointer ";
   const completedTaskClasses =
-    "flex items-center justify-between text-sm md:text-lg  text-white line-through p-2 shadow-md rounded-sm w-full min-h-15 max-h-20 bg-[#976f47]";
+    "flex items-center justify-between text-sm md:text-lg  text-white line-through p-2 shadow-md rounded-sm w-full h-18 bg-[#976f47]";
 
   useEffect(() => {
     if (editMode && inputRef.current) {
@@ -52,7 +52,7 @@ function Task({ task, taskDel, toggleComplete }) {
               if (e.key === "Enter") confirmChanges();
               if (e.key === "Escape") undoChanges();
             }}
-            className="font-roboto-bold  outline-none border border-zinc-300 rounded-md w-[90%] min-h-8 px-2"
+            className="font-roboto-bold  outline-none border border-zinc-300 rounded-md w-[90%]"
             type="text"
           />
           <div className="flex gap-2 sm:gap-x-2 pl-2">
