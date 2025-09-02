@@ -55,7 +55,7 @@ function Task({ task, taskDel, toggleComplete }) {
             className="font-roboto-bold  outline-none border border-zinc-300 rounded-md w-[90%] min-h-8 px-2"
             type="text"
           />
-          <div className="flex gap-2 sm:gap-x-4">
+          <div className="flex gap-2 sm:gap-x-2 pl-2">
             <div
               onClick={confirmChanges}
               title="Confirm Changes"
@@ -83,11 +83,11 @@ function Task({ task, taskDel, toggleComplete }) {
         >
           <p
             title={completed ? "" : "Mark as completed"}
-            className="font-roboto-bold overflow-x-scroll text-nowrap py-4 w-[75%]"
+            className="font-roboto-bold overflow-x-auto text-nowrap py-4 w-[75%]"
           >
             {taskName}
           </p>
-          <div className="flex gap-x-4">
+          <div className="flex gap-x-4 pl-1">
             {/* Edit Button */}
             {!completed && (
               <button
